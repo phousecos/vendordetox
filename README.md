@@ -1,9 +1,9 @@
 # Vendor Detox™ — Landing Page
 
 A single-page marketing site for **Vendor Detox™**, a fixed-fee vendor-spend
-diagnostic from CIO Advisra (Dr. Jerri Bland). The page is written for the
-mid-market C-suite — **CEO, COO, CFO, and CIO** — and leads with the offer,
-the benefit, and transparent pricing.
+diagnostic from J. Lynne &amp; Co., delivered by senior technology advisors.
+The page is written for the mid-market C-suite — **CEO, COO, CFO, and CIO** —
+and leads with the offer, the benefit, and transparent pricing.
 
 ## Contents
 
@@ -20,7 +20,7 @@ the benefit, and transparent pricing.
 6. **Pricing** — the three fixed-fee tiers (Clarity / Standard / Enterprise)
 7. **Savings Capture** — the optional, contingency-based second step
 8. **When it pays off most** — fit criteria
-9. **About Dr. Jerri Bland**
+9. **About** — the senior technology advisors who deliver the Detox
 10. **Final CTA** — book a 30-minute call
 
 ## Editing
@@ -29,10 +29,9 @@ Before going live, replace these placeholders:
 
 - **Scheduling link** — the "Book a call" buttons use `data-cta="schedule"`
   / `href="#"`. Point them at your real scheduling URL (e.g. Calendly).
-- **Email** — the mailto link uses `jerri@cioadvisra.com`; update to the
-  correct address.
-- **Portrait** — the About section uses a monogram placeholder (`JB`). Swap
-  in a real headshot if desired.
+- **Email** — the mailto link uses `hello@jlynne.co`; update if needed.
+- **Portrait** — the About section uses a monogram placeholder (`JL`). Swap
+  in a team photo or firm mark if desired.
 
 ## Preview
 
