@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendor Detox™ — Recover the software spend you're losing | CIO Advisra</title>
+  <meta name="description" content="Vendor Detox™ is a fixed-fee diagnostic that reconciles what you pay for against what you actually use — then hands your leadership team a prioritized plan to recover the waste. From $8,500. In about a month." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧾</text></svg>" />
+  <style>
+    :root {
+      --ink: #0d1b2a;
+      --ink-2: #1b2b3a;
+      --slate: #46586b;
+      --slate-2: #67788a;
+      --line: #e2e8ef;
+      --paper: #ffffff;
+      --paper-2: #f5f8fb;
+      --paper-3: #eef3f8;
+      --emerald: #0f8a5f;
+      --emerald-d: #0b6e4b;
+      --emerald-soft: #e6f4ee;
+      --gold: #b8863b;
+      --shadow-sm: 0 1px 2px rgba(13,27,42,.06), 0 2px 8px rgba(13,27,42,.05);
+      --shadow-md: 0 8px 30px rgba(13,27,42,.10);
+      --shadow-lg: 0 20px 60px rgba(13,27,42,.16);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --maxw: 1140px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.02em; font-weight: 700; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--emerald-d);
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--emerald); border-radius: 2px; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: saturate(180%) blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 700; letter-spacing: -.01em; }
+    .brand .mark {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: linear-gradient(135deg, var(--ink), var(--ink-2));
+      display: grid; place-items: center; color: #fff; flex: none;
+    }
+    .brand .mark svg { width: 19px; height: 19px; }
+    .brand .name { font-size: 16px; color: var(--ink); }
+    .brand .name small { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--slate-2); margin-top: 1px; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a { font-size: 14.5px; font-weight: 500; color: var(--slate); transition: color .15s; }
+    .nav-links a:hover { color: var(--ink); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--font); font-size: 15px; font-weight: 600; cursor: pointer;
+      padding: 12px 22px; border-radius: 999px; border: 1px solid transparent;
+      transition: transform .12s ease, box-shadow .2s ease, background .2s ease;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--emerald); color: #fff; box-shadow: 0 6px 18px rgba(15,138,95,.28); }
+    .btn-primary:hover { background: var(--emerald-d); transform: translateY(-1px); box-shadow: 0 10px 26px rgba(15,138,95,.34); }
+    .btn-ghost { background: #fff; color: var(--ink); border-color: var(--line); box-shadow: var(--shadow-sm); }
+    .btn-ghost:hover { border-color: #cfd9e3; transform: translateY(-1px); }
+    .btn-lg { padding: 15px 30px; font-size: 16px; }
+    .nav .btn { padding: 10px 20px; }
+    @media (max-width: 860px) { .nav-links a:not(.btn) { display: none; } }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(1200px 600px at 78% -10%, rgba(15,138,95,.10), transparent 60%),
+        radial-gradient(900px 500px at 8% 0%, rgba(13,27,42,.05), transparent 55%),
+        var(--paper);
+      padding: 78px 0 40px;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(38px, 5.2vw, 60px); color: var(--ink); margin: 20px 0 0; }
+    .hero h1 .accent { color: var(--emerald-d); }
+    .hero .lede { font-size: 19px; color: var(--slate); margin-top: 22px; max-width: 560px; }
+    .hero .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; align-items: center; }
+    .hero .micro { font-size: 13.5px; color: var(--slate-2); margin-top: 22px; display: flex; flex-wrap: wrap; gap: 18px 26px; }
+    .hero .micro span { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; }
+    .hero .micro svg { width: 16px; height: 16px; color: var(--emerald); flex: none; }
+
+    /* Hero card */
+    .hero-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .hero-card .hc-head {
+      padding: 18px 22px; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--paper-2);
+    }
+    .hero-card .hc-head .t { font-size: 13px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--slate); }
+    .hero-card .hc-head .dot { display: inline-flex; gap: 6px; }
+    .hero-card .hc-head .dot i { width: 9px; height: 9px; border-radius: 50%; background: #dbe3ec; display: block; }
+    .hc-body { padding: 8px 22px 6px; }
+    .ledger-row {
+      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px;
+      padding: 13px 0; border-bottom: 1px solid var(--paper-3);
+    }
+    .ledger-row:last-child { border-bottom: none; }
+    .ledger-row .lr-name { font-weight: 600; font-size: 15px; color: var(--ink); }
+    .ledger-row .lr-sub { font-size: 12.5px; color: var(--slate-2); font-weight: 500; }
+    .ledger-row .lr-amt { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 15px; }
+    .tag { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; letter-spacing: .02em; display: inline-block; }
+    .tag.cut { background: var(--emerald-soft); color: var(--emerald-d); }
+    .tag.risk { background: #fdeee2; color: #a35c1a; }
+    .hc-foot {
+      background: var(--ink); color: #fff; padding: 16px 22px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .hc-foot .lbl { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: #9db4c8; font-weight: 600; }
+    .hc-foot .val { font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; color: #6be2ac; letter-spacing: -.01em; }
+
+    @media (max-width: 940px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding-top: 52px; }
+      .hero-card { max-width: 460px; }
+    }
+
+    /* ---------- Trust strip ---------- */
+    .trust { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-2); padding: 26px 0; }
+    .trust-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px 40px; text-align: center; }
+    .trust-inner p { font-size: 14px; color: var(--slate); font-weight: 500; }
+    .trust-inner strong { color: var(--ink); font-weight: 700; }
+
+    /* ---------- Section scaffolding ---------- */
+    section { padding: 84px 0; }
+    .sec-head { max-width: 720px; margin: 0 auto 52px; text-align: center; }
+    .sec-head h2 { font-size: clamp(28px, 3.6vw, 40px); color: var(--ink); margin-top: 14px; }
+    .sec-head p { font-size: 18px; color: var(--slate); margin-top: 16px; }
+    .sec-head.left { text-align: left; margin-left: 0; }
+
+    /* ---------- Audience row ---------- */
+    .audience { background: var(--paper); }
+    .aud-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .aud-card {
+      background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 26px 24px; transition: transform .15s ease, box-shadow .2s ease;
+    }
+    .aud-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .aud-card .role { font-size: 13px; font-weight: 800; letter-spacing: .1em; color: var(--emerald-d); }
+    .aud-card h3 { font-size: 18px; margin: 10px 0 8px; color: var(--ink); }
+    .aud-card p { font-size: 14.5px; color: var(--slate); }
+    @media (max-width: 820px) { .aud-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .aud-grid { grid-template-columns: 1fr; } }
+
+    /* ---------- Problem ---------- */
+    .problem { background: var(--ink); color: #eaf1f7; }
+    .problem .sec-head h2 { color: #fff; }
+    .problem .sec-head p { color: #a9c0d4; }
+    .prob-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+    .prob-card { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.10); border-radius: var(--radius); padding: 28px 26px; }
+    .prob-card .n { font-family: var(--serif); font-size: 30px; color: #6be2ac; font-weight: 400; }
+    .prob-card h3 { color: #fff; font-size: 19px; margin: 12px 0 10px; }
+    .prob-card p { color: #a9c0d4; font-size: 15px; }
+    .problem .pull { text-align: center; max-width: 780px; margin: 48px auto 0; font-family: var(--serif); font-size: clamp(22px, 3vw, 30px); line-height: 1.4; color: #fff; font-weight: 400; }
+    .problem .pull em { color: #6be2ac; font-style: normal; }
+    @media (max-width: 820px) { .prob-grid { grid-template-columns: 1fr; } }
+
+    /* ---------- How it works ---------- */
+    .how { background: var(--paper-2); }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; margin-top: 10px; }
+    .step { position: relative; padding: 0 26px; }
+    .step:not(:last-child)::after {
+      content: ""; position: absolute; top: 22px; right: -0px; width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--line), transparent);
+      transform: translateX(50%); z-index: 0;
+    }
+    .step .num {
+      position: relative; z-index: 1; width: 46px; height: 46px; border-radius: 50%;
+      background: var(--emerald); color: #fff; display: grid; place-items: center;
+      font-weight: 800; font-size: 18px; box-shadow: 0 6px 16px rgba(15,138,95,.3);
+    }
+    .step h3 { font-size: 17.5px; margin: 20px 0 9px; color: var(--ink); }
+    .step p { font-size: 14.5px; color: var(--slate); }
+    @media (max-width: 900px) {
+      .steps { grid-template-columns: 1fr; gap: 30px; }
+      .step { padding: 0; display: grid; grid-template-columns: 46px 1fr; column-gap: 20px; align-items: start; }
+      .step h3 { margin-top: 6px; }
+      .step .content { grid-column: 2; }
+      .step .num { grid-row: 1 / span 3; }
+      .step:not(:last-child)::after { display: none; }
+    }
+
+    /* ---------- Deliverables ---------- */
+    .deliver { background: var(--paper); }
+    .del-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .del-card {
+      border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 26px;
+      background: var(--paper); transition: transform .15s ease, box-shadow .2s ease, border-color .2s;
+    }
+    .del-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #d4e0ea; }
+    .del-icon { width: 46px; height: 46px; border-radius: 12px; background: var(--emerald-soft); color: var(--emerald-d); display: grid; place-items: center; margin-bottom: 18px; }
+    .del-icon svg { width: 24px; height: 24px; }
+    .del-card h3 { font-size: 18px; color: var(--ink); margin-bottom: 9px; }
+    .del-card p { font-size: 14.5px; color: var(--slate); }
+    @media (max-width: 900px) { .del-grid { grid-template-columns: 1fr; } }
+
+    /* ---------- Pricing ---------- */
+    .pricing { background: var(--paper-2); }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+    .price-card {
+      position: relative; background: var(--paper); border: 1px solid var(--line);
+      border-radius: var(--radius-lg); padding: 34px 30px; display: flex; flex-direction: column;
+      transition: transform .15s ease, box-shadow .2s ease;
+    }
+    .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .price-card.featured { border: 2px solid var(--emerald); box-shadow: var(--shadow-md); }
+    .price-card .flag {
+      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--emerald); color: #fff; font-size: 11.5px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px;
+    }
+    .price-card .tier { font-size: 14px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--emerald-d); }
+    .price-card .scope { font-size: 14px; color: var(--slate-2); margin-top: 6px; font-weight: 500; }
+    .price-card .amt { font-size: 44px; font-weight: 800; color: var(--ink); margin: 18px 0 2px; letter-spacing: -.02em; }
+    .price-card .amt span { font-size: 16px; font-weight: 600; color: var(--slate-2); }
+    .price-card .timeline { font-size: 14px; color: var(--slate); font-weight: 500; }
+    .price-card hr { border: none; border-top: 1px solid var(--line); margin: 22px 0; }
+    .price-card ul { list-style: none; display: grid; gap: 11px; margin-bottom: 26px; }
+    .price-card li { font-size: 14.5px; color: var(--slate); display: flex; gap: 10px; align-items: flex-start; }
+    .price-card li svg { width: 18px; height: 18px; color: var(--emerald); flex: none; margin-top: 2px; }
+    .price-card .btn { margin-top: auto; width: 100%; }
+    .price-note { text-align: center; max-width: 680px; margin: 32px auto 0; font-size: 14.5px; color: var(--slate-2); }
+    @media (max-width: 900px) { .price-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } }
+
+    /* ---------- Savings Capture ---------- */
+    .capture { background: var(--paper); }
+    .cap-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);
+    }
+    .cap-left { padding: 52px 48px; background: var(--paper); }
+    .cap-left .step-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--slate-2); }
+    .cap-left h2 { font-size: clamp(26px, 3vw, 34px); margin: 16px 0 16px; color: var(--ink); }
+    .cap-left p { color: var(--slate); font-size: 16px; margin-bottom: 14px; }
+    .cap-left ul { list-style: none; display: grid; gap: 14px; margin-top: 22px; }
+    .cap-left li { display: flex; gap: 12px; font-size: 15px; color: var(--ink); }
+    .cap-left li svg { width: 20px; height: 20px; color: var(--emerald); flex: none; margin-top: 2px; }
+    .cap-left li strong { font-weight: 700; }
+    .cap-right {
+      padding: 52px 48px; color: #eaf1f7;
+      background: linear-gradient(160deg, var(--ink), var(--ink-2));
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .cap-right .big { font-size: 15px; color: #9db4c8; font-weight: 600; letter-spacing: .04em; }
+    .cap-right .pct { font-size: 60px; font-weight: 800; color: #6be2ac; letter-spacing: -.02em; margin: 8px 0; }
+    .cap-right .pct span { font-size: 22px; color: #9db4c8; font-weight: 600; }
+    .cap-right .desc { font-size: 15.5px; color: #c3d3e0; line-height: 1.6; }
+    .cap-right .neutral {
+      margin-top: 26px; padding: 18px 20px; border-radius: 12px;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.10);
+      font-size: 14px; color: #c3d3e0;
+    }
+    .cap-right .neutral strong { color: #fff; }
+    @media (max-width: 860px) { .cap-wrap { grid-template-columns: 1fr; } .cap-left, .cap-right { padding: 40px 30px; } }
+
+    /* ---------- Fit / when it pays off ---------- */
+    .fit { background: var(--paper-2); }
+    .fit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 900px; margin: 0 auto; }
+    .fit-item { display: flex; gap: 16px; padding: 24px 26px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); }
+    .fit-item .chk { width: 30px; height: 30px; border-radius: 8px; background: var(--emerald-soft); color: var(--emerald-d); display: grid; place-items: center; flex: none; }
+    .fit-item .chk svg { width: 18px; height: 18px; }
+    .fit-item p { font-size: 15.5px; color: var(--ink); font-weight: 500; }
+    @media (max-width: 720px) { .fit-grid { grid-template-columns: 1fr; } }
+
+    /* ---------- About ---------- */
+    .about { background: var(--paper); }
+    .about-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; max-width: 980px; margin: 0 auto; }
+    .about-portrait {
+      aspect-ratio: 1; border-radius: var(--radius-lg); background: linear-gradient(160deg, var(--ink), var(--ink-2));
+      display: grid; place-items: center; color: #fff; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    }
+    .about-portrait .initials { font-family: var(--serif); font-size: 84px; font-weight: 400; letter-spacing: .02em; }
+    .about-portrait::after { content: ""; position: absolute; inset: 0; background: radial-gradient(300px 200px at 70% 20%, rgba(107,226,172,.18), transparent 60%); }
+    .about h2 { font-size: 30px; color: var(--ink); }
+    .about .title { color: var(--emerald-d); font-weight: 600; font-size: 15px; margin: 8px 0 20px; }
+    .about p { color: var(--slate); font-size: 16px; margin-bottom: 16px; }
+    .about .creds { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .about .creds span { font-size: 13px; font-weight: 600; color: var(--ink); background: var(--paper-2); border: 1px solid var(--line); padding: 7px 14px; border-radius: 999px; }
+    @media (max-width: 760px) { .about-wrap { grid-template-columns: 1fr; gap: 32px; text-align: center; } .about-portrait { max-width: 240px; margin: 0 auto; } .about .creds { justify-content: center; } }
+
+    /* ---------- Final CTA ---------- */
+    .final { background: linear-gradient(160deg, var(--ink), #0a1622); color: #fff; text-align: center; }
+    .final h2 { font-size: clamp(30px, 4vw, 46px); color: #fff; max-width: 760px; margin: 0 auto; }
+    .final p { font-size: 19px; color: #a9c0d4; margin: 20px auto 0; max-width: 620px; }
+    .final .cta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 36px; }
+    .final .btn-ghost { background: rgba(255,255,255,.08); color: #fff; border-color: rgba(255,255,255,.22); }
+    .final .btn-ghost:hover { background: rgba(255,255,255,.14); }
+    .final .no-obl { margin-top: 26px; font-size: 14px; color: #7f97ac; }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--ink); color: #8ba3b8; padding: 46px 0 40px; border-top: 1px solid rgba(255,255,255,.08); }
+    .foot-grid { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+    .foot-brand { display: flex; align-items: center; gap: 11px; color: #fff; font-weight: 700; }
+    .foot-brand .mark { width: 30px; height: 30px; border-radius: 8px; background: rgba(255,255,255,.10); display: grid; place-items: center; }
+    .foot-brand .mark svg { width: 16px; height: 16px; color: #6be2ac; }
+    .foot-links { display: flex; flex-wrap: wrap; gap: 22px; font-size: 14px; }
+    .foot-links a:hover { color: #fff; }
+    .foot-legal { width: 100%; border-top: 1px solid rgba(255,255,255,.08); margin-top: 30px; padding-top: 24px; font-size: 13px; color: #6a839a; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+    .foot-legal .tm { color: #8ba3b8; }
+
+    /* reveal */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="CIO Advisra home">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+        </span>
+        <span class="name">Vendor Detox<small>CIO Advisra</small></span>
+      </a>
+      <nav class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#deliverables">What you get</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#book" class="btn btn-primary">Book a call</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Fixed-fee vendor diagnostic</span>
+        <h1>Find the software spend <span class="accent">you're losing</span> — and turn it into recovered dollars.</h1>
+        <p class="lede">Your finance, IT, and department teams each hold one piece of the vendor picture. <strong>Vendor Detox™</strong> puts it in one place — reconciling what you pay for against what your people actually use — and hands your leadership a prioritized plan to recover the waste. One report. One working session. About a month.</p>
+        <div class="cta-row">
+          <a href="#book" class="btn btn-primary btn-lg">Book a 30-minute call</a>
+          <a href="#pricing" class="btn btn-ghost btn-lg">See pricing</a>
+        </div>
+        <div class="micro">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Fixed fee from $8,500</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Vendor- &amp; software-agnostic</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Light lift on your team</span>
+        </div>
+      </div>
+
+      <div class="hero-card reveal" aria-hidden="true">
+        <div class="hc-head">
+          <span class="t">Reconciled Vendor Registry</span>
+          <span class="dot"><i></i><i></i><i></i></span>
+        </div>
+        <div class="hc-body">
+          <div class="ledger-row">
+            <div><div class="lr-name">Collaboration suite</div><div class="lr-sub">312 seats paid · 47 active in 90 days</div></div>
+            <div style="text-align:right"><div class="lr-amt">$41,200</div><span class="tag cut">Shelfware</span></div>
+          </div>
+          <div class="ledger-row">
+            <div><div class="lr-name">Project tool (× overlap)</div><div class="lr-sub">Duplicates existing platform</div></div>
+            <div style="text-align:right"><div class="lr-amt">$28,800</div><span class="tag cut">Redundant</span></div>
+          </div>
+          <div class="ledger-row">
+            <div><div class="lr-name">Analytics platform</div><div class="lr-sub">Auto-renews in 34 days · list price</div></div>
+            <div style="text-align:right"><div class="lr-amt">$63,500</div><span class="tag risk">Renewal</span></div>
+          </div>
+          <div class="ledger-row">
+            <div><div class="lr-name">Orphaned subscriptions ×6</div><div class="lr-sub">No owner · no recent logins</div></div>
+            <div style="text-align:right"><div class="lr-amt">$19,400</div><span class="tag cut">Cancel</span></div>
+          </div>
+        </div>
+        <div class="hc-foot">
+          <span class="lbl">Recoverable spend identified</span>
+          <span class="val">$152,900</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRUST STRIP ============ -->
+  <div class="trust">
+    <div class="wrap trust-inner">
+      <p>Built for mid-market leadership teams — <strong>200–1,000 employees</strong></p>
+      <p>Led by a <strong>former Deputy CIO, Columbia University</strong></p>
+      <p><strong>25+ years</strong> running enterprise technology &amp; vendor portfolios</p>
+    </div>
+  </div>
+
+  <!-- ============ AUDIENCE ============ -->
+  <section class="audience">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Written for the whole C-suite</span>
+        <h2>One read the entire leadership team can trust</h2>
+        <p>The Detox stays neutral because it has no stake in what happens next — which is exactly what lets every seat at the table act on the findings.</p>
+      </div>
+      <div class="aud-grid">
+        <div class="aud-card reveal">
+          <div class="role">CEO</div>
+          <h3>Discipline without drama</h3>
+          <p>Recover budget and tighten vendor sprawl without a reorg or a new software purchase — a clean win you can point to.</p>
+        </div>
+        <div class="aud-card reveal">
+          <div class="role">CFO</div>
+          <h3>Spend you can see</h3>
+          <p>Every technology dollar reconciled against real usage, with recoverable savings quantified and creditable toward the work that captures them.</p>
+        </div>
+        <div class="aud-card reveal">
+          <div class="role">COO</div>
+          <h3>Fewer redundant tools</h3>
+          <p>Overlapping platforms consolidated and orphaned subscriptions retired — less operational friction across every department.</p>
+        </div>
+        <div class="aud-card reveal">
+          <div class="role">CIO / CTO</div>
+          <h3>A defensible stack</h3>
+          <p>A single reconciled registry, a 12-month renewal watchlist, and the leverage points that keep contracts from renewing against you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="problem">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:#6be2ac">The blind spot</span>
+        <h2>The waste isn't hidden. It's just never been put in one place.</h2>
+        <p>Mid-market organizations quietly lose a meaningful share of their software budget — because no one inside has ever seen the whole picture at once.</p>
+      </div>
+      <div class="prob-grid">
+        <div class="prob-card reveal">
+          <div class="n">01</div>
+          <h3>Seats nobody uses</h3>
+          <p>Licenses provisioned for people who left, teams that shrank, or rollouts that never landed — paid for month after month.</p>
+        </div>
+        <div class="prob-card reveal">
+          <div class="n">02</div>
+          <h3>Tools that do the same job twice</h3>
+          <p>Departments buy their own software. Overlapping platforms pile up, each with its own invoice and no one comparing them.</p>
+        </div>
+        <div class="prob-card reveal">
+          <div class="n">03</div>
+          <h3>Contracts on autopilot</h3>
+          <p>Renewals fire at list price because the cancellation window quietly passed — and the leverage is gone for another year.</p>
+        </div>
+      </div>
+      <p class="pull">Finance pays the invoices. IT owns the systems. Departments buy the tools. <em>No one inside holds the whole picture — so the money keeps leaking.</em></p>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">How it works</span>
+        <h2>The engagement runs on data you already have</h2>
+        <p>The lift on your team is light — finance can pull most of it in an afternoon.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="num">1</div>
+          <div class="content">
+            <h3>You provide three things</h3>
+            <p>12 months of vendor payments from AP, an export from your identity system (Okta, Microsoft, or Google Workspace), and your renewal calendar.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="num">2</div>
+          <div class="content">
+            <h3>We reconcile pay against use</h3>
+            <p>Payment records show what you're buying. Your identity system shows what people actually sign into. The gap between them is where the money is.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="num">3</div>
+          <div class="content">
+            <h3>We surface the leverage</h3>
+            <p>Redundant tools, subscriptions on autopilot, premium tiers nobody uses, and renewals where the contract has quietly weakened your position.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="num">4</div>
+          <div class="content">
+            <h3>You get a plan</h3>
+            <p>A prioritized written report and a live debrief — what to cut now, and what to renegotiate at renewal. You own the findings entirely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DELIVERABLES ============ -->
+  <section class="deliver" id="deliverables">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">What you receive</span>
+        <h2>One report. Five things you can act on.</h2>
+        <p>A complete, reconciled map of your technology vendor stack — with the dollars attached.</p>
+      </div>
+      <div class="del-grid">
+        <div class="del-card reveal">
+          <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg></div>
+          <h3>A reconciled vendor registry</h3>
+          <p>Every tool, what it costs, and who actually uses it — the whole stack in one view for the first time.</p>
+        </div>
+        <div class="del-card reveal">
+          <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3>Shelfware findings</h3>
+          <p>Unused and under-used licenses, each with the recoverable dollars attached — the fastest money to reclaim.</p>
+        </div>
+        <div class="del-card reveal">
+          <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="9" height="10" rx="2"/><rect x="13" y="7" width="9" height="10" rx="2"/><path d="M11 12h2"/></svg></div>
+          <h3>Redundancy findings</h3>
+          <p>Overlapping tools you can consolidate — the same job, paid for twice, now visible side by side.</p>
+        </div>
+        <div class="del-card reveal">
+          <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15l2 2 4-4"/></svg></div>
+          <h3>A 12-month renewal watchlist</h3>
+          <p>Every renewal ahead, with notice deadlines and the leverage points that protect your spend before the window closes.</p>
+        </div>
+        <div class="del-card reveal">
+          <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+          <h3>A prioritized savings plan</h3>
+          <p>Quick wins to act on immediately, and structural moves to make at renewal — sequenced by dollars and effort.</p>
+        </div>
+        <div class="del-card reveal" style="background:var(--emerald-soft); border-color:#bfe3d1;">
+          <div class="del-icon" style="background:#fff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8 8 10 4.6-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>Built to pay for itself</h3>
+          <p>Designed to surface recoverable spend well beyond the cost of the engagement — and the fee is creditable toward any follow-on work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Transparent, fixed pricing</span>
+        <h2>Priced by the size of your vendor stack</h2>
+        <p>One number, fixed at the start — no per-vendor surcharges, no retainer, no surprises.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card reveal">
+          <div class="tier">Clarity</div>
+          <div class="scope">Up to 25 vendors</div>
+          <div class="amt">$8,500</div>
+          <div class="timeline">Typical timeline: ~30 days</div>
+          <hr />
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Reconciled vendor registry</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Shelfware &amp; redundancy findings</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Written report + live debrief</li>
+          </ul>
+          <a href="#book" class="btn btn-ghost">Start with Clarity</a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <span class="flag">Most common</span>
+          <div class="tier">Standard</div>
+          <div class="scope">26–40 vendors</div>
+          <div class="amt">$10,500</div>
+          <div class="timeline">Typical timeline: 30–40 days</div>
+          <hr />
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Everything in Clarity</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 12-month renewal watchlist</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Prioritized savings plan</li>
+          </ul>
+          <a href="#book" class="btn btn-primary">Book a call</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="tier">Enterprise</div>
+          <div class="scope">41+ vendors</div>
+          <div class="amt">$14,500</div>
+          <div class="timeline">Typical timeline: ~45 days</div>
+          <hr />
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Everything in Standard</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Full-stack reconciliation at scale</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Structural-risk contract review</li>
+          </ul>
+          <a href="#book" class="btn btn-ghost">Talk to Jerri</a>
+        </div>
+      </div>
+      <p class="price-note"><strong>Tier true-up:</strong> the fee is quoted at intake from your estimated vendor count. If the reconciled registry runs larger, the engagement simply moves to the next tier — no per-vendor surcharge. Fees are creditable toward any follow-on Savings Capture work.</p>
+    </div>
+  </section>
+
+  <!-- ============ SAVINGS CAPTURE ============ -->
+  <section class="capture">
+    <div class="wrap">
+      <div class="cap-wrap">
+        <div class="cap-left reveal">
+          <span class="step-badge">Optional second step</span>
+          <h2>Don't just find the money. Capture it.</h2>
+          <p>The Detox ends at a plan you own. When you're ready to execute it, <strong>Savings Capture</strong> takes those findings and goes and gets the money — driving the cancellations, consolidations, tier downgrades, and renegotiations.</p>
+          <p>It's a separate, opt-in engagement — because a diagnostic with no stake in the outcome is the only kind a skeptical board can fully trust.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Paid on results.</strong> A share of verified savings — only on dollars actually delivered.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Verified against a baseline.</strong> What counts as savings is defined up front, with a verification step.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>You choose to proceed.</strong> Offered after the Detox, using its findings as the input — never a precondition.</span></li>
+          </ul>
+        </div>
+        <div class="cap-right reveal">
+          <div class="big">You pay from the savings</div>
+          <div class="pct">25–35<span>%</span></div>
+          <div class="desc">of verified first-year savings — and nothing on dollars that don't materialize. The engagement pays for itself out of the money it frees.</div>
+          <div class="neutral"><strong>Vendor-neutral, always.</strong> Delivered by Jerri's team or subcontracted negotiators who take no money from your vendors. No vendor funds ever touch the engagement — so the read stays straight.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIT ============ -->
+  <section class="fit">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Is it the right time?</span>
+        <h2>When a Detox pays off most</h2>
+      </div>
+      <div class="fit-grid">
+        <div class="fit-item reveal">
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <p>A new CFO or finance leader taking stock of what the organization actually owns.</p>
+        </div>
+        <div class="fit-item reveal">
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <p>Renewals stacking up over the next 6–12 months.</p>
+        </div>
+        <div class="fit-item reveal">
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <p>Budget pressure with no obvious cuts left on the table.</p>
+        </div>
+        <div class="fit-item reveal">
+          <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <p>Vendor sprawl after a stretch of fast growth, a merger, or a move to remote work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about">
+    <div class="wrap about-wrap">
+      <div class="about-portrait reveal" aria-hidden="true">
+        <span class="initials">JB</span>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Who runs your Detox</span>
+        <h2>Dr. Jerri Bland</h2>
+        <div class="title">Founder, CIO Advisra</div>
+        <p>Dr. Jerri Bland is a former Deputy CIO at Columbia University and Assistant Vice Chancellor at UNC–Chapel Hill, with 25+ years running enterprise technology and vendor portfolios across higher education, government, and the private sector.</p>
+        <p>She now advises mid-market leadership teams on cutting wasted technology spend and bringing discipline to bloated vendor stacks — vendor- and software-agnostic throughout, so the read is always straight.</p>
+        <div class="creds">
+          <span>Former Deputy CIO, Columbia University</span>
+          <span>AVC, UNC–Chapel Hill</span>
+          <span>25+ years in enterprise technology</span>
+          <span>Vendor- &amp; software-agnostic</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final" id="book">
+    <div class="wrap">
+      <span class="eyebrow" style="color:#6be2ac">The next step</span>
+      <h2>A 30-minute call to look at your stack together.</h2>
+      <p>We'll decide whether a Detox makes sense for your organization. No obligation, and no prep required on your end.</p>
+      <div class="cta-row">
+        <a href="#" class="btn btn-primary btn-lg" data-cta="schedule">Book a call</a>
+        <a href="mailto:jerri@cioadvisra.com?subject=Vendor%20Detox%20inquiry" class="btn btn-ghost btn-lg">Email Dr. Bland</a>
+      </div>
+      <p class="no-obl">Fixed fee from $8,500 · Vendor- &amp; software-agnostic · Fees creditable toward follow-on work</p>
+    </div>
+  </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+          <span>CIO Advisra</span>
+        </div>
+        <nav class="foot-links">
+          <a href="#how">How it works</a>
+          <a href="#deliverables">What you get</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#about">About</a>
+          <a href="#book">Book a call</a>
+        </nav>
+      </div>
+      <div class="foot-legal">
+        <span class="tm">Vendor Detox™ is a service of CIO Advisra.</span>
+        <span>© <span id="yr">2026</span> CIO Advisra. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (e) { io.observe(e); });
+    })();
+  </script>
+</body>
+</html>
