@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vendor Detox™ — Recover the software spend you're losing | J. Lynne &amp; Co.</title>
-  <meta name="description" content="Vendor Detox™ is a fixed-fee diagnostic that reconciles what you pay for against what you actually use — then hands your leadership team a prioritized plan to recover the waste. From $8,500. In about a month." />
+  <title>Vendor Detox™: Recover the software spend you're losing | J. Lynne &amp; Co.</title>
+  <meta name="description" content="Vendor Detox™ is a fixed-fee diagnostic that reconciles what you pay for against what you actually use, then hands your leadership team a prioritized plan to recover the waste. From $8,500. In about a month." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧾</text></svg>" />
   <style>
     :root {
@@ -299,11 +299,12 @@
     .about { background: var(--paper); }
     .about-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; max-width: 980px; margin: 0 auto; }
     .about-portrait {
-      aspect-ratio: 1; border-radius: var(--radius-lg); background: linear-gradient(160deg, var(--ink), var(--ink-2));
-      display: grid; place-items: center; color: #fff; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+      aspect-ratio: 1; border-radius: var(--radius-lg); background: #fff;
+      display: grid; place-items: center; color: var(--ink); box-shadow: var(--shadow-lg);
+      position: relative; overflow: hidden; border: 1px solid var(--line);
     }
-    .about-portrait .initials { font-family: var(--serif); font-size: 84px; font-weight: 400; letter-spacing: .02em; }
-    .about-portrait::after { content: ""; position: absolute; inset: 0; background: radial-gradient(300px 200px at 70% 20%, rgba(107,226,172,.18), transparent 60%); }
+    .about-portrait .logo { grid-area: 1 / 1; width: 74%; height: 74%; object-fit: contain; }
+    .about-portrait .initials { grid-area: 1 / 1; font-family: var(--serif); font-size: 84px; font-weight: 400; letter-spacing: .02em; color: var(--ink); }
     .about h2 { font-size: 30px; color: var(--ink); }
     .about .title { color: var(--emerald-d); font-weight: 600; font-size: 15px; margin: 8px 0 20px; }
     .about p { color: var(--slate); font-size: 16px; margin-bottom: 16px; }
@@ -364,8 +365,8 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">Fixed-fee vendor diagnostic</span>
-        <h1>Find the software spend <span class="accent">you're losing</span> — and turn it into recovered dollars.</h1>
-        <p class="lede">Your finance, IT, and department teams each hold one piece of the vendor picture. <strong>Vendor Detox™</strong> puts it in one place — reconciling what you pay for against what your people actually use — and hands your leadership a prioritized plan to recover the waste. One report. One working session. About a month.</p>
+        <h1>Find the software spend <span class="accent">you're losing</span>, and turn it into recovered dollars.</h1>
+        <p class="lede">Your finance, IT, and department teams each hold one piece of the vendor picture. <strong>Vendor Detox™</strong> puts it in one place, reconciling what you pay for against what your people actually use, and hands your leadership a prioritized plan to recover the waste. One report. One working session. About a month.</p>
         <div class="cta-row">
           <a href="#book" class="btn btn-primary btn-lg">Book a 30-minute call</a>
           <a href="#pricing" class="btn btn-ghost btn-lg">See pricing</a>
@@ -411,7 +412,7 @@
   <!-- ============ TRUST STRIP ============ -->
   <div class="trust">
     <div class="wrap trust-inner">
-      <p>Built for mid-market leadership teams — <strong>200–1,000 employees</strong></p>
+      <p>Built for mid-market leadership teams of <strong>200–1,000 employees</strong></p>
       <p>Delivered by <strong>senior technology advisors</strong></p>
       <p><strong>Decades</strong> running enterprise technology &amp; vendor portfolios</p>
     </div>
@@ -423,13 +424,13 @@
       <div class="sec-head">
         <span class="eyebrow">Written for the whole C-suite</span>
         <h2>One read the entire leadership team can trust</h2>
-        <p>The Detox stays neutral because it has no stake in what happens next — which is exactly what lets every seat at the table act on the findings.</p>
+        <p>The Detox stays neutral because it has no stake in what happens next, which is exactly what lets every seat at the table act on the findings.</p>
       </div>
       <div class="aud-grid">
         <div class="aud-card reveal">
           <div class="role">CEO</div>
           <h3>Discipline without drama</h3>
-          <p>Recover budget and tighten vendor sprawl without a reorg or a new software purchase — a clean win you can point to.</p>
+          <p>Recover budget and tighten vendor sprawl without a reorg or a new software purchase. A clean win you can point to.</p>
         </div>
         <div class="aud-card reveal">
           <div class="role">CFO</div>
@@ -439,7 +440,7 @@
         <div class="aud-card reveal">
           <div class="role">COO</div>
           <h3>Fewer redundant tools</h3>
-          <p>Overlapping platforms consolidated and orphaned subscriptions retired — less operational friction across every department.</p>
+          <p>Overlapping platforms consolidated and orphaned subscriptions retired, which means less operational friction across every department.</p>
         </div>
         <div class="aud-card reveal">
           <div class="role">CIO / CTO</div>
@@ -456,13 +457,13 @@
       <div class="sec-head">
         <span class="eyebrow" style="color:#6be2ac">The blind spot</span>
         <h2>The waste isn't hidden. It's just never been put in one place.</h2>
-        <p>Mid-market organizations quietly lose a meaningful share of their software budget — because no one inside has ever seen the whole picture at once.</p>
+        <p>Mid-market organizations quietly lose a meaningful share of their software budget, because no one inside has ever seen the whole picture at once.</p>
       </div>
       <div class="prob-grid">
         <div class="prob-card reveal">
           <div class="n">01</div>
           <h3>Seats nobody uses</h3>
-          <p>Licenses provisioned for people who left, teams that shrank, or rollouts that never landed — paid for month after month.</p>
+          <p>Licenses provisioned for people who left, teams that shrank, or rollouts that never landed, paid for month after month.</p>
         </div>
         <div class="prob-card reveal">
           <div class="n">02</div>
@@ -472,10 +473,10 @@
         <div class="prob-card reveal">
           <div class="n">03</div>
           <h3>Contracts on autopilot</h3>
-          <p>Renewals fire at list price because the cancellation window quietly passed — and the leverage is gone for another year.</p>
+          <p>Renewals fire at list price because the cancellation window quietly passed, and the leverage is gone for another year.</p>
         </div>
       </div>
-      <p class="pull">Finance pays the invoices. IT owns the systems. Departments buy the tools. <em>No one inside holds the whole picture — so the money keeps leaking.</em></p>
+      <p class="pull">Finance pays the invoices. IT owns the systems. Departments buy the tools. <em>No one inside holds the whole picture, so the money keeps leaking.</em></p>
     </div>
   </section>
 
@@ -485,7 +486,7 @@
       <div class="sec-head">
         <span class="eyebrow">How it works</span>
         <h2>The engagement runs on data you already have</h2>
-        <p>The lift on your team is light — finance can pull most of it in an afternoon.</p>
+        <p>The lift on your team is light. Finance can pull most of it in an afternoon.</p>
       </div>
       <div class="steps">
         <div class="step reveal">
@@ -513,7 +514,7 @@
           <div class="num">4</div>
           <div class="content">
             <h3>You get a plan</h3>
-            <p>A prioritized written report and a live debrief — what to cut now, and what to renegotiate at renewal. You own the findings entirely.</p>
+            <p>A prioritized written report and a live debrief: what to cut now, and what to renegotiate at renewal. You own the findings entirely.</p>
           </div>
         </div>
       </div>
@@ -526,23 +527,23 @@
       <div class="sec-head">
         <span class="eyebrow">What you receive</span>
         <h2>One report. Five things you can act on.</h2>
-        <p>A complete, reconciled map of your technology vendor stack — with the dollars attached.</p>
+        <p>A complete, reconciled map of your technology vendor stack, with the dollars attached.</p>
       </div>
       <div class="del-grid">
         <div class="del-card reveal">
           <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 4v16"/></svg></div>
           <h3>A reconciled vendor registry</h3>
-          <p>Every tool, what it costs, and who actually uses it — the whole stack in one view for the first time.</p>
+          <p>Every tool, what it costs, and who actually uses it: the whole stack in one view for the first time.</p>
         </div>
         <div class="del-card reveal">
           <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
           <h3>Shelfware findings</h3>
-          <p>Unused and under-used licenses, each with the recoverable dollars attached — the fastest money to reclaim.</p>
+          <p>Unused and under-used licenses, each with the recoverable dollars attached. The fastest money to reclaim.</p>
         </div>
         <div class="del-card reveal">
           <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="9" height="10" rx="2"/><rect x="13" y="7" width="9" height="10" rx="2"/><path d="M11 12h2"/></svg></div>
           <h3>Redundancy findings</h3>
-          <p>Overlapping tools you can consolidate — the same job, paid for twice, now visible side by side.</p>
+          <p>Overlapping tools you can consolidate: the same job, paid for twice, now visible side by side.</p>
         </div>
         <div class="del-card reveal">
           <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15l2 2 4-4"/></svg></div>
@@ -552,12 +553,12 @@
         <div class="del-card reveal">
           <div class="del-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
           <h3>A prioritized savings plan</h3>
-          <p>Quick wins to act on immediately, and structural moves to make at renewal — sequenced by dollars and effort.</p>
+          <p>Quick wins to act on immediately, and structural moves to make at renewal, sequenced by dollars and effort.</p>
         </div>
         <div class="del-card reveal" style="background:var(--emerald-soft); border-color:#bfe3d1;">
           <div class="del-icon" style="background:#fff;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.4 8 8 10 4.6-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
           <h3>Built to pay for itself</h3>
-          <p>Designed to surface recoverable spend well beyond the cost of the engagement — and the fee is creditable toward any follow-on work.</p>
+          <p>Designed to surface recoverable spend well beyond the cost of the engagement, and the fee is creditable toward any follow-on work.</p>
         </div>
       </div>
     </div>
@@ -569,7 +570,7 @@
       <div class="sec-head">
         <span class="eyebrow">Transparent, fixed pricing</span>
         <h2>Priced by the size of your vendor stack</h2>
-        <p>One number, fixed at the start — no per-vendor surcharges, no retainer, no surprises.</p>
+        <p>One number, fixed at the start: no per-vendor surcharges, no retainer, no surprises.</p>
       </div>
       <div class="price-grid">
         <div class="price-card reveal">
@@ -615,7 +616,7 @@
           <a href="#book" class="btn btn-ghost">Talk to an advisor</a>
         </div>
       </div>
-      <p class="price-note"><strong>Tier true-up:</strong> the fee is quoted at intake from your estimated vendor count. If the reconciled registry runs larger, the engagement simply moves to the next tier — no per-vendor surcharge. Fees are creditable toward any follow-on Savings Capture work.</p>
+      <p class="price-note"><strong>Tier true-up:</strong> the fee is quoted at intake from your estimated vendor count. If the reconciled registry runs larger, the engagement simply moves to the next tier, with no per-vendor surcharge. Fees are creditable toward any follow-on Savings Capture work.</p>
     </div>
   </section>
 
@@ -626,19 +627,19 @@
         <div class="cap-left reveal">
           <span class="step-badge">Optional second step</span>
           <h2>Don't just find the money. Capture it.</h2>
-          <p>The Detox ends at a plan you own. When you're ready to execute it, <strong>Savings Capture</strong> takes those findings and goes and gets the money — driving the cancellations, consolidations, tier downgrades, and renegotiations.</p>
-          <p>It's a separate, opt-in engagement — because a diagnostic with no stake in the outcome is the only kind a skeptical board can fully trust.</p>
+          <p>The Detox ends at a plan you own. When you're ready to execute it, <strong>Savings Capture</strong> takes those findings and goes and gets the money, driving the cancellations, consolidations, tier downgrades, and renegotiations.</p>
+          <p>It's a separate, opt-in engagement, because a diagnostic with no stake in the outcome is the only kind a skeptical board can fully trust.</p>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Paid on results.</strong> A share of verified savings — only on dollars actually delivered.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Paid on results.</strong> A share of verified savings, only on dollars actually delivered.</span></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Verified against a baseline.</strong> What counts as savings is defined up front, with a verification step.</span></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>You choose to proceed.</strong> Offered after the Detox, using its findings as the input — never a precondition.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><strong>You choose to proceed.</strong> Offered after the Detox, using its findings as the input, never a precondition.</span></li>
           </ul>
         </div>
         <div class="cap-right reveal">
           <div class="big">You pay from the savings</div>
           <div class="pct">25–35<span>%</span></div>
-          <div class="desc">of verified first-year savings — and nothing on dollars that don't materialize. The engagement pays for itself out of the money it frees.</div>
-          <div class="neutral"><strong>Vendor-neutral, always.</strong> Delivered by our senior advisors or subcontracted negotiators who take no money from your vendors. No vendor funds ever touch the engagement — so the read stays straight.</div>
+          <div class="desc">of verified first-year savings, and nothing on dollars that don't materialize. The engagement pays for itself out of the money it frees.</div>
+          <div class="neutral"><strong>Vendor-neutral, always.</strong> Delivered by our senior advisors or subcontracted negotiators who take no money from your vendors. No vendor funds ever touch the engagement, so the read stays straight.</div>
         </div>
       </div>
     </div>
@@ -675,15 +676,17 @@
   <!-- ============ ABOUT ============ -->
   <section class="about" id="about">
     <div class="wrap about-wrap">
-      <div class="about-portrait reveal" aria-hidden="true">
-        <span class="initials">JL</span>
+      <div class="about-portrait reveal">
+        <img class="logo" src="assets/jlynne-logo.png" alt="J. Lynne &amp; Co. logo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="initials" style="display:none" aria-hidden="true">JL</span>
       </div>
       <div class="reveal">
         <span class="eyebrow">Who runs your Detox</span>
         <h2>Senior technology advisors</h2>
         <div class="title">J. Lynne &amp; Co.</div>
         <p>Your Detox is delivered by senior technology advisors who have spent decades running enterprise technology and vendor portfolios across higher education, government, and the private sector.</p>
-        <p>They advise mid-market leadership teams on cutting wasted technology spend and bringing discipline to bloated vendor stacks — vendor- and software-agnostic throughout, so the read is always straight.</p>
+        <p>They advise mid-market leadership teams on cutting wasted technology spend and bringing discipline to bloated vendor stacks, vendor- and software-agnostic throughout, so the read is always straight.</p>
         <div class="creds">
           <span>Decades in enterprise technology</span>
           <span>Enterprise vendor-portfolio expertise</span>
